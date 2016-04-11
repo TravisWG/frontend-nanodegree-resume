@@ -73,9 +73,9 @@ $("#header").append(formattedName);
 console.log(bio.skills.length);
 if(bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
-	var counter = 0
-	while(counter < bio.skills.length) { 
-		$("#skills").append(HTMLskills.replace("%data%", bio.skills[counter]));
-		counter = counter + 1
+	var skills = 0;
+	while(skills < bio.skills.length) { 
+		$("#skills").append(HTMLskills.replace("%data%", bio.skills[skills]));
+		skills = skills + 1;
 	}
 }
