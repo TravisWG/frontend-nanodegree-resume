@@ -14,10 +14,18 @@ var bio = {
 var work = {
 	"jobs" : [
 		{	
-		"position" : "CSPD Tech II",
+		"title" : "CSPD Tech II",
 		"employer" : "Sanford Health",
 		"dates" : "July 2014 to Current",
-		"city" : "Fargo"
+		"city" : "Fargo",
+		"description" : "Processing and assembly of sterile instrumentation for use during surgical procedures."
+		},
+		{	
+		"title" : "Psychiatric Technician",
+		"employer" : "Prairie St John's",
+		"dates" : "February 2012 to May 2013",
+		"city" : "Fargo",
+		"description" : "Assisted nursing staff with patient care in an inpatient psychiatric facility"
 		}
 	]
 }
@@ -66,11 +74,12 @@ var projects = {
 	]
 }
 
+
+
 var name = "Travis Gagnon";
 var formattedName = HTMLheaderName.replace("%data%", name);
 $("#header").append(formattedName);
 
-console.log(bio.skills.length);
 if(bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
 	var skills = 0;
@@ -79,3 +88,36 @@ if(bio.skills.length > 0) {
 		skills = skills + 1;
 	}
 }
+
+function displayWork(){
+	for(job in work.jobs) {
+		$("#workExperience").append(HTMLworkStart);
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		
+		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		$(".work-entry:last").append(formattedEmployer.concat(formattedTitle));
+		
+		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		$(".work-entry:last").append(formattedDates);
+		
+		var formattedCity = HTMLworkLocation.replace("%data%", work.jobs[job].city);
+		$(".work-entry:last").append(formattedCity);
+		
+		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		$(".work-entry:last").append(formattedDescription);
+	}	
+}
+
+displayWork();
+
+function inName(){
+	var nameArray = name.split(" ");
+	var upperLastName = nameArray[1];
+	upperLastName = upperLastName.toUpperCase();
+	name = nameArray[0] + " " + upperLastName;
+	return name;
+}
+
+var inNameButtonHTML = "<button onclick='inName()'>Internationalize Name</button>";
+$("#main").append(inNameButtonHTML);
+
