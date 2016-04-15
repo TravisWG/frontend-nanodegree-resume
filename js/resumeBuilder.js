@@ -69,7 +69,8 @@ var projects = {
 		"title" : "Intro to Programming Nanodegree Notes Webpage",
 		"dates" : "May 2015 - October 2015",
 		"description" : "Website built using skills learned during Intro to Programming Nanodegree. Content is primarily notes taken during the course. The site is hosted using Google App Engine and features use of HTML, CSS, (minor) JavaScript, and Python.",
-		"image" : "imageNotHere.jpg"
+		"location" : "Udacity",
+		"image" : "images/IPND_Page.jpg"
 		}
 	]
 }
@@ -121,3 +122,16 @@ function inName(){
 var inNameButtonHTML = "<button onclick='inName()'>Internationalize Name</button>";
 $("#main").append(inNameButtonHTML);
 
+projects.display = function() {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+		$(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projects[project].title));
+		$(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[project].dates));
+		$(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[project].description));
+		if(projects.projects[project].image.length > 0) {
+			$(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[project].image));
+		}
+	}
+}
+
+projects.display();
