@@ -19,9 +19,27 @@ h6 {
 }
 
 .education-entry,
-.work-entry,
-.project-entry {
+.work-entry {
   padding: 0 5%;
+}
+
+.project-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-entry {
+    text-align: center;
+    width: 45%;
+    padding: 10px 2.5%;
+}
+
+
+.project-date-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #999;
+  line-height: 16px;
 }
 
 h1 {
@@ -162,6 +180,28 @@ img {
 
 span {
   padding: 5px;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.popup-container {
+  background-color: white;
+  z-index: 11;
+  margin: 150px 150px;
+  text-align: center;
+}
+
+.popup-entry {
+  text-align: center;
+  padding: 50px 200px;
 }
 
 #lets-connect {
