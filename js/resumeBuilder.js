@@ -211,7 +211,7 @@ projects.display();
 
 $("#overlay").hide();
 
-$("a[href!='#']").click(function(event){
+$(".project-entry > a[href!='#']").click(function(event){
 	
 	event.preventDefault();
 	var href = $(this).attr("href");
@@ -239,7 +239,7 @@ $("a[href!='#']").click(function(event){
 
 $(document).ready(function() {
 	$("#overlay").on("click", function() {
-		$("#overlay").hide();
+		$("#overlay").hide(200);
 		$("#overlay").empty();
 	});
 });
