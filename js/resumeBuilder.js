@@ -9,8 +9,9 @@ var bio = {
 	},
 	"welcomeMessage" : "Hello!  My name is Travis and I am an aspiring Front End Web Developer.",
 	"skills" : ["HTML", "CSS", "JavaScript", "Communication", "Work Ethic"],
-	"bioPic" : "images/bobby.jpg"
-}	
+	"bioPic" : "images/bobby.jpg",
+	"imageAlt": "Personal headshot"
+};
 
 bio.display =  function() {
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -21,9 +22,11 @@ bio.display =  function() {
 
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 	$("#topContacts").append(formattedEmail);
+	$("#footerContacts").append(formattedEmail);
 
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	$("#topContacts").append(formattedMobile);
+	$("#footerContacts").append(formattedMobile);
 
 	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 	$("#topContacts").append(formattedGithub);
@@ -33,7 +36,7 @@ bio.display =  function() {
 
 	$("#header").append("<hr>");
 
-	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic).replace("%alt%", bio.imageAlt);
 	$("#header").append(formattedBioPic);
 
 	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
@@ -42,14 +45,14 @@ bio.display =  function() {
 	if(bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
 		var skills = 0;
-		while(skills < bio.skills.length) { 
+		while(skills < bio.skills.length) {
 			$("#skills").append(HTMLskills.replace("%data%", bio.skills[skills]));
 			skills = skills + 1;
 		}
-	}	
-}
+	}
+};
 
-bio.display()
+bio.display();
 
 var education = {
 	"schools" : [
@@ -65,10 +68,10 @@ var education = {
 		"location" : "Fargo, North Dakota",
 		"degree" : "Non-degree",
 		"major" : "Pre-Physical Therapy",
-		"dates"	: "2013 - 2014"	
+		"dates"	: "2013 - 2014"
 		}
-	],	
-	
+	],
+
 	"onlineCourses" : [
 		{
 		"school" : "Udacity",
@@ -83,14 +86,14 @@ var education = {
 		"url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
 		}
 	]
-}
+};
 
 education.display = function() {
 	for(school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 
 		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
-		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree)
+		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		$(".education-entry:last").append(formattedName.concat(formattedDegree));
 
 		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
@@ -103,9 +106,8 @@ education.display = function() {
 		$(".education-entry:last").append(formattedMajor);
 	}
 
-
 	$("#education").append("<br>" + HTMLonlineClasses);
-	
+
 	for(course in education.onlineCourses) {
 		$("#education").append(HTMLschoolStart);
 
@@ -113,23 +115,23 @@ education.display = function() {
 		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
 		$(".education-entry:last").append(formattedTitle.concat(formattedOnlineSchool));
 
-		var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
-		$(".education-entry:last").append(formattedDates);
+		var formattedCourseDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+		$(".education-entry:last").append(formattedCourseDates);
 	}
-}
+};
 
 education.display();
 
 var work = {
 	"jobs" : [
-		{	
+		{
 		"employer" : "Good Health Hospital",
 		"title" : "CSPD Tech II",
 		"location" : "Fargo, North Dakota",
 		"dates" : "July 2014 to Current",
 		"description" : "Processing and assembly of sterile instrumentation for use during surgical procedures."
 		},
-		{	
+		{
 		"employer" : "St John's Hospital",
 		"title" : "Psychiatric Technician",
 		"location" : "Fargo, North Dakota",
@@ -137,7 +139,7 @@ var work = {
 		"description" : "Assisted nursing staff with patient care in an inpatient psychiatric facility"
 		}
 	]
-}
+};
 
 work.display = function(){
 	for(job in work.jobs) {
@@ -146,50 +148,43 @@ work.display = function(){
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 		$(".work-entry:last").append(formattedEmployer.concat(formattedTitle));
-		
+
 		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 		$(".work-entry:last").append(formattedDates);
-		
+
 		var formattedCity = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 		$(".work-entry:last").append(formattedCity);
-		
+
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(formattedDescription);
-	}	
-}
+	}
+};
 
 work.display();
 
 var projects = {
 	"projects" : [
-		{
-		"title" : "Intro to Programming Nanodegree Notes Webpage",
-		"dates" : "May 2015 - October 2015",
-		"description" : "Website built using skills learned during Intro to Programming Nanodegree. Content is primarily notes taken during the course. The site is hosted using Google App Engine and features use of HTML, CSS, (minor) JavaScript, and Python.",
+				{
+		"title" : "Responsive Web Design Project",
+		"dates" : "March 2016",
+		"description" : "Simple portfolio design that utilizes various responsive web design techniques such as CSS breakpoints (media queries), responsive patterns, CSS frameworks, and responsive images (srcset and sizes attributes).",
 		"location" : "Udacity",
-		"image" : "images/IPND_Page.jpg"
-		},
-		{
-		"title" : "Bascondfsdf",
-		"dates" : "May 2015 - October 2015",
-		"description" : "Website built using skills learned during Intro to Programming Nanodegree. Content is primarily notes taken during the course. The site is hosted using Google App Engine and features use of HTML, CSS, (minor) JavaScript, and Python.",
-		"location" : "Udacity",
-		"image" : "images/IPND_Page.jpg"
+		"image" : "images/Responsive_page.jpg",
+		"imageAlt": "Responsive Design Project Snapshot"
 		},
 		{
 		"title" : "Intro to Programming Nanodegree Notes Webpage",
 		"dates" : "May 2015 - October 2015",
 		"description" : "Website built using skills learned during Intro to Programming Nanodegree. Content is primarily notes taken during the course. The site is hosted using Google App Engine and features use of HTML, CSS, (minor) JavaScript, and Python.",
 		"location" : "Udacity",
-		"image" : "images/IPND_Page.jpg"
+		"image" : "images/IPND_Page.jpg",
+		"imageAlt": "Intro to Programming Note Webpage Snapshot"
 		}
 	]
-}
-
-
+};
 
 projects.display = function() {
-	$("#projects").append("<div class='project-container'></div>")
+	$("#projects").append("<div class='project-container'></div>");
 	for (project in projects.projects) {
 		$(".project-container").append(HTMLprojectStart);
 
@@ -199,25 +194,25 @@ projects.display = function() {
 
 		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
 		$(".project-entry:last").append(formattedDates);
-		
+
 		if(projects.projects[project].image.length > 0) {
-			var projectImage = HTMLprojectImage.replace("%data%", projects.projects[project].image);
+			var projectImage = HTMLprojectImage.replace("%data%", projects.projects[project].image).replace("%alt%", projects.projects[project].imageAlt);
 			$(".project-entry:last").append(projectImage);
 		}
 	}
-}
+};
 
 projects.display();
 
 $("#overlay").hide();
 
 $(".project-entry > a[href!='#']").click(function(event){
-	
+
 	event.preventDefault();
 	var href = $(this).attr("href");
 	$("#overlay").append("<div class='popup-container'></div>");
 	$(".popup-container").append(HTMLprojectStart);
-	
+
 	var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[href].title);
 	$(".project-entry:last").attr("class", "popup-entry");
 	$(".popup-entry").append(formattedTitle);
@@ -225,7 +220,7 @@ $(".project-entry > a[href!='#']").click(function(event){
 	var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[href].dates);
 	$(".popup-entry").append(formattedDates);
 
-	var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[href].description)
+	var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[href].description);
 	$(".popup-entry").append(formattedDescription);
 
 	if(projects.projects[project].image.length > 0) {
@@ -236,15 +231,12 @@ $(".project-entry > a[href!='#']").click(function(event){
 	}
 });
 
-
 $(document).ready(function() {
 	$("#overlay").on("click", function() {
 		$("#overlay").hide(200);
 		$("#overlay").empty();
 	});
 });
-
-
 
 function inName(){
 	var nameArray = bio.name.split(" ");

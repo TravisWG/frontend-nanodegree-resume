@@ -30,8 +30,17 @@ h6 {
 
 .project-entry {
     text-align: center;
-    width: 45%;
+    width: 100%;
     padding: 10px 2.5%;
+}
+
+.popup-entry>img,
+.project-entry>img {
+  margin-top: 15px;
+  padding: 0;
+  border: outset;
+  border-color: #f3f3f3;
+  border-width: 4px;
 }
 
 
@@ -120,7 +129,7 @@ a {
 #skills-h3 {
   color: #f5ae23;
   display: none;
-}
+  }
 
 .orange {
   background-color: #f5ae23;
@@ -193,7 +202,7 @@ span {
 }
 
 .popup-container {
-  background-color: white;
+  background-color: #f3f3f3;
   z-index: 11;
   margin: 150px 150px;
   text-align: center;
@@ -251,4 +260,27 @@ span {
   .biopic {
     display: block;
   }
+
+    #skills-h3{
+    margin-top: 70px;
+  }
+
+
+  .project-entry {
+    text-align: center;
+    width: 45%;
+    padding: 10px 2.5%;
+  }
+
+  #role {
+  float: right;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #f5ae23;
+  }
 }
+
+@media only screen and (min-width: 900px) {
+  #skills-h3{
+    margin-top: 120px;
+  }
