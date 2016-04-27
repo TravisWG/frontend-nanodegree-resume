@@ -9,7 +9,7 @@ var bio = {
 	},
 	"welcomeMessage" : "Hello!  My name is Travis and I am an aspiring Front End Web Developer.",
 	"skills" : ["HTML", "CSS", "JavaScript", "Communication", "Work Ethic"],
-	"bioPic" : "images/bobby.jpg",
+	"biopic" : "images/bobby.jpg",
 	"imageAlt": "Personal headshot"
 };
 
@@ -36,8 +36,8 @@ bio.display =  function() {
 
 	$("#header").append("<hr>");
 
-	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic).replace("%alt%", bio.imageAlt);
-	$("#header").append(formattedBioPic);
+	var formattedbiopic = HTMLbioPic.replace("%data%", bio.biopic).replace("%alt%", bio.imageAlt);
+	$("#header").append(formattedbiopic);
 
 	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 	$("#header").append(formattedWelcomeMessage);
@@ -55,33 +55,33 @@ bio.display =  function() {
 bio.display();
 
 var education = {
-	"schools" : [
-		{
+	"schools" : [{
 		"name" : "Bemidji State University",
 		"location" : "Bemidji, Minnesota",
 		"degree" : "Bachelor of Science",
-		"major" : "Psychology",
-		"dates" : "2004 - 2010"
+		"majors" : "Psychology",
+		"dates" : "2004 - 2010",
+		"url" : ""
 		},
 		{
 		"name" : "North Dakota State University",
 		"location" : "Fargo, North Dakota",
 		"degree" : "Non-degree",
-		"major" : "Pre-Physical Therapy",
-		"dates"	: "2013 - 2014"
+		"majors" : "Pre-Physical Therapy",
+		"dates"	: "2013 - 2014",
+		"url" : ""
 		}
 	],
 
-	"onlineCourses" : [
-		{
+	"onlineCourses" : [{
 		"school" : "Udacity",
-		"dates" : "May 2015 - October 2015",
+		"date" : "May 2015 - October 2015",
 		"title" : "Intro to Programming Nanodegree",
 		"url" : "https://www.udacity.com/course/intro-to-programming-nanodegree--nd000"
 		},
 		{
 		"school" : "Udacity",
-		"dates" : "February 2015 to Current",
+		"date" : "February 2015 to Current",
 		"title" : "Front End Web Development Nanodegree",
 		"url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
 		}
@@ -102,7 +102,7 @@ education.display = function() {
 		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		$(".education-entry:last").append(formattedLocation);
 
-		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
 		$(".education-entry:last").append(formattedMajor);
 	}
 
@@ -115,16 +115,15 @@ education.display = function() {
 		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
 		$(".education-entry:last").append(formattedTitle.concat(formattedOnlineSchool));
 
-		var formattedCourseDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
-		$(".education-entry:last").append(formattedCourseDates);
+		var formattedCourseDate = HTMLonlineDates.replace("%data%", education.onlineCourses[course].date);
+		$(".education-entry:last").append(formattedCourseDate);
 	}
 };
 
 education.display();
 
 var work = {
-	"jobs" : [
-		{
+	"jobs" : [{
 		"employer" : "Good Health Hospital",
 		"title" : "CSPD Tech II",
 		"location" : "Fargo, North Dakota",
@@ -163,13 +162,12 @@ work.display = function(){
 work.display();
 
 var projects = {
-	"projects" : [
-				{
+	"projects" : [{
 		"title" : "Responsive Web Design Project",
 		"dates" : "March 2016",
 		"description" : "Simple portfolio design that utilizes various responsive web design techniques such as CSS breakpoints (media queries), responsive patterns, CSS frameworks, and responsive images (srcset and sizes attributes).",
 		"location" : "Udacity",
-		"image" : "images/Responsive_page.jpg",
+		"images" : ["images/responsive_page.jpg", "images/responsive_page_large.jpg"],
 		"imageAlt": "Responsive Design Project Snapshot"
 		},
 		{
@@ -177,7 +175,7 @@ var projects = {
 		"dates" : "May 2015 - October 2015",
 		"description" : "Website built using skills learned during Intro to Programming Nanodegree. Content is primarily notes taken during the course. The site is hosted using Google App Engine and features use of HTML, CSS, (minor) JavaScript, and Python.",
 		"location" : "Udacity",
-		"image" : "images/IPND_Page.jpg",
+		"images" : ["images/IPND_Page.jpg", "images/IPND_Page_Large.jpg"],
 		"imageAlt": "Intro to Programming Note Webpage Snapshot"
 		}
 	]
@@ -195,8 +193,8 @@ projects.display = function() {
 		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
 		$(".project-entry:last").append(formattedDates);
 
-		if(projects.projects[project].image.length > 0) {
-			var projectImage = HTMLprojectImage.replace("%data%", projects.projects[project].image).replace("%alt%", projects.projects[project].imageAlt);
+		if(projects.projects[project].images.length > 0) {
+			var projectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[0]).replace("%alt%", projects.projects[project].imageAlt);
 			$(".project-entry:last").append(projectImage);
 		}
 	}
@@ -223,8 +221,8 @@ $(".project-entry > a[href!='#']").click(function(event){
 	var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[href].description);
 	$(".popup-entry").append(formattedDescription);
 
-	if(projects.projects[project].image.length > 0) {
-			var projectImage = HTMLprojectImage.replace("%data%", projects.projects[href].image);
+	if(projects.projects[project].images.length > 0) {
+			var projectImage = HTMLprojectImage.replace("%data%", projects.projects[href].images[1]).replace("%alt%", projects.projects[project].imageAlt);
 			$(".popup-entry").append(projectImage);
 
 	$("#overlay").show(200);
