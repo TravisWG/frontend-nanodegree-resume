@@ -204,13 +204,12 @@ span {
 .popup-container {
   background-color: #f3f3f3;
   z-index: 11;
-  margin: 150px 150px;
   text-align: center;
 }
 
 .popup-entry {
   text-align: center;
-  padding: 50px 200px;
+  padding: 50px 50px;
 }
 
 #lets-connect {
@@ -278,9 +277,33 @@ span {
   font-size: 20px;
   color: #f5ae23;
   }
+
 }
 
 @media only screen and (min-width: 900px) {
   #skills-h3{
     margin-top: 120px;
   }
+
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+  }
+
+  .popup-container {
+  background-color: #f3f3f3;
+  z-index: 11;
+  margin: 150px 150px;
+  text-align: center;
+  }
+
+  .popup-entry {
+  text-align: center;
+  padding: 50px 200px;
+  }
+}
