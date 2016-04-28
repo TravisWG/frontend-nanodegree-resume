@@ -185,6 +185,7 @@ ul {
 
 img {
   padding: 10px;
+  max-width: 100%;
 }
 
 span {
@@ -209,7 +210,6 @@ span {
 
 .popup-entry {
   text-align: center;
-  padding: 50px 50px;
 }
 
 #lets-connect {
@@ -240,6 +240,9 @@ span {
   .welcome-message {
     display: none;
   }
+  .popup-entry > img{
+    max-width: 100%;
+  }
 }
 
 #map {
@@ -252,6 +255,12 @@ span {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
+}
+
+@media only screen and (min-width: 500px) {
+  .popup-entry {
+  padding: 50px 50px;
+  }
 }
 
 @media only screen and (min-width: 750px) {
@@ -271,13 +280,13 @@ span {
     padding: 10px 2.5%;
   }
 
+
   #role {
   float: right;
   margin-top: 20px;
   font-size: 20px;
   color: #f5ae23;
   }
-
 }
 
 @media only screen and (min-width: 900px) {
@@ -298,12 +307,24 @@ span {
   .popup-container {
   background-color: #f3f3f3;
   z-index: 11;
-  margin: 150px 150px;
+  margin: 50px 150px;
   text-align: center;
   }
 
   .popup-entry {
   text-align: center;
-  padding: 50px 200px;
+  padding: 50px 100px;
+  }
+
+  .popup-entry > img{
+    width: 400px;
   }
 }
+
+@media only screen and (min-width: 1150px) {
+  .popup-entry > img{
+    width:600px;
+  }
+  }
+
+

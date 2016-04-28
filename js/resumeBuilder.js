@@ -59,7 +59,7 @@ var education = {
 		"name" : "Bemidji State University",
 		"location" : "Bemidji, Minnesota",
 		"degree" : "Bachelor of Science",
-		"majors" : "Psychology",
+		"majors" : ["Psychology"],
 		"dates" : "2004 - 2010",
 		"url" : ""
 		},
@@ -67,7 +67,7 @@ var education = {
 		"name" : "North Dakota State University",
 		"location" : "Fargo, North Dakota",
 		"degree" : "Non-degree",
-		"majors" : "Pre-Physical Therapy",
+		"majors" : ["Pre-Physical Therapy"],
 		"dates"	: "2013 - 2014",
 		"url" : ""
 		}
